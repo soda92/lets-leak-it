@@ -90,5 +90,20 @@ def GetProcessByName(name: str):
         ret = Process32NextW(hProcessSnap, pointer(pe32))
 
     ret = False
-    CloseHandle(hProcessSnap)
+    # CloseHandle(hProcessSnap)
     return ret
+
+
+if __name__ == "__main__":
+
+    while True:
+        try:
+            GetProcessByName("aaa")
+        except KeyboardInterrupt:
+            break
+        else:
+            try:
+                import time
+                time.sleep(0.2)
+            except KeyboardInterrupt:
+                break
